@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+{% block title %}Đăng nhập{% endblock %}
+
+{% block content %}
+<div class="form-container">
+    <h1>Đăng nhập</h1>
+    <form method="POST" action="{{ url_for('login') }}">
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+            <label for="password">Mật khẩu</label>
+            <input type="password" id="password" name="password" required>
+        </div>
+        <button type="submit">Đăng nhập</button>
+    </form>
+    <p style="text-align: center; margin-top: 20px;">
+        Chưa có tài khoản? <a href="{{ url_for('register') }}" style="color: var(--link-color);">Đăng kí ngay</a>
+    </p>
+</div>
+{% endblock %}

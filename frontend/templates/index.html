@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+{% block title %}Chào mừng{% endblock %}
+
+{% block content %}
+<div style="text-align: center; margin-top: 100px;">
+    <h1>Chào mừng đến với CryptoMail</h1>
+    <p>Một hệ thống webmail demo an toàn với mã hoá và chữ ký số.</p>
+    <br>
+    {% if not g.user %}
+    <p>
+        <a href="{{ url_for('login') }}" class="button" style="padding: 12px 20px; text-decoration: none; font-size: 1.1em;">Đăng nhập</a>
+        hoặc
+        <a href="{{ url_for('register') }}" style="color: var(--link-color);">Đăng kí</a>
+    </p>
+    {% endif %}
+</div>
+{% endblock %}

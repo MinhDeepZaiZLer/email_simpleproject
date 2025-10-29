@@ -1,0 +1,45 @@
+<!-- frontend/templates/compose.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Soạn Email</title>
+</head>
+<body>
+    <h1>Soạn Email Mới</h1>
+    
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="alert alert-{{ category }}">{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+    
+    <form method="POST">
+        <div>
+            <label>Đến:</label>
+            <input type="email" name="to" required placeholder="recipient@mail.com">
+        </div>
+        
+        <div>
+            <label>Tiêu đề:</label>
+            <input type="text" name="subject" required placeholder="Tiêu đề email">
+        </div>
+        
+        <div>
+            <label>Nội dung:</label>
+            <textarea name="body" required rows="10" placeholder="Nội dung email..."></textarea>
+        </div>
+        
+        <div>
+            <label>
+                <input type="checkbox" name="encrypt" checked>
+                Mã hóa email này (bảo mật end-to-end)
+            </label>
+        </div>
+        
+        <button type="submit">Gửi Email</button>
+        <a href="{{ url_for('inbox') }}">Hủy</a>
+    </form>
+</body>
+</html>

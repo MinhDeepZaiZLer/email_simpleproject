@@ -1,0 +1,208 @@
+:root {
+    --bg-color: #1a1a1b;
+    --card-color: #272729;
+    --border-color: #4d4d4f;
+    --text-color: #d7dadc;
+    --text-muted: #818384;
+    --link-color: #4f9eed;
+    --green: #4CAF50;
+    --red: #f44336;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 0 20px;
+}
+
+/* --- Navigation --- */
+nav {
+    background-color: var(--card-color);
+    padding: 10px 20px;
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 30px;
+}
+
+nav .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+nav .logo {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: var(--text-color);
+    text-decoration: none;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 20px;
+}
+
+nav ul li a {
+    color: var(--link-color);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+nav ul li a.button {
+    background-color: var(--link-color);
+    color: white;
+    padding: 8px 15px;
+    border-radius: 5px;
+}
+
+/* --- Forms --- */
+.form-container {
+    background-color: var(--card-color);
+    padding: 30px;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    max-width: 450px;
+    margin: 40px auto;
+}
+
+.form-container h1 {
+    text-align: center;
+    margin-top: 0;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+    color: var(--text-muted);
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    background-color: var(--bg-color);
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    color: var(--text-color);
+    font-size: 1em;
+    box-sizing: border-box; /* Fix padding issue */
+}
+
+.form-group textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    background-color: var(--link-color);
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+button:hover {
+    background-color: #3a8ae2;
+}
+
+/* --- Alerts (Flash Messages) --- */
+.flash {
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    list-style: none;
+    text-align: center;
+}
+.flash.success {
+    background-color: var(--green);
+    color: white;
+}
+.flash.error {
+    background-color: var(--red);
+    color: white;
+}
+
+/* --- Inbox --- */
+.inbox-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 10px;
+}
+
+.email-list {
+    margin-top: 20px;
+}
+
+.email-item {
+    background-color: var(--card-color);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    margin-bottom: 20px;
+    padding: 20px;
+}
+
+.email-item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px dashed var(--border-color);
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+.email-subject {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.email-from {
+    color: var(--text-muted);
+}
+
+.email-body {
+    white-space: pre-wrap; /* Giữ nguyên định dạng xuống dòng */
+}
+
+.email-signature {
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid var(--border-color);
+    font-size: 0.9em;
+}
+
+.verified {
+    color: var(--green);
+    font-weight: bold;
+}
+.not-verified {
+    color: var(--red);
+    font-weight: bold;
+}

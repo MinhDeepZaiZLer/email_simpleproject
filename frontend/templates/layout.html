@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Demo Webmail{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <nav>
+        <div class="container">
+            <a href="{{ url_for('index') }}" class="logo">CryptoMail</a>
+            <ul>
+                {% if g.user %}
+                    <li><span>Chào, {{ g.user.username }}</span></li>
+                    <li><a href="{{ url_for('inbox') }}">Hòm thư</a></li>
+                    <li><a href="{{ url_for('logout') }}">Đăng xuất</a></li>
+                {% else %}
+                    <li><a href="{{ url_for('login') }}">Đăng nhập</a></li>
+                    <li><a href="{{ url_for('register') }}" class="button">Đăng kí</a></li>
+                {% endif %}
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <ul class="flash-messages">
+                {% for category, message in messages %}
+                    <li class="flash {{ category }}">{{ message }}</li>
+                {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+
+        {% block content %}{% endblock %}
+    </main>
+
+</body>
+</html>

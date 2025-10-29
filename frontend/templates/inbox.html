@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+{% block title %}Hòm thư{% endblock %}
+
+{% block content %}
+<div class="inbox-header">
+    <h1>Hòm thư đến</h1>
+    <a href="{{ url_for('compose') }}" class="button" style="text-decoration: none;">Soạn thư mới</a>
+</div>
+
+<div class="email-list">
+    {% if emails %}
+        {% for email in emails %}
+        <div class="email-item">
+            <div class="email-item-header">
+                <div>
+                    <div class="email-subject">{{ email.subject }}</div>
+                    <div class="email-from">Từ: {{ email.from }}</div>
+                </div>
+               <div>
+    {% if email.verified == True %}
+        <span class="verified">✔ Đã xác thực</span>
+    {% elif email.verified == False %}
+        <span class="not-verified">❌ Chữ ký không hợp lệ!</span>
+    {% else %}
+        <span style="color: var(--text-muted); font-style: italic;">(Email thường)</span>
+    {% endif %}
+</div>
+            </div>
+            <div class="email-body">
+                {{ email.body }}
+            </div>
+        </div>
+        {% endfor %}
+    {% else %}
+        <p style="text-align: center; color: var(--text-muted); margin-top: 50px;">
+            Hòm thư của bạn trống.
+        </p>
+    {% endif %}
+</div>
+{% endblock %}

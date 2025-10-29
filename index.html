@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Websocket Chat & Video Call</title>
+    <style>
+        body { font-family: sans-serif; display: flex; gap: 20px; padding: 20px; }
+        .column { flex: 1; }
+        #chat-container { border: 1px solid #ccc; padding: 10px; }
+        #chat-box { height: 400px; overflow-y: scroll; margin-bottom: 10px; border: 1px solid #ddd; padding: 5px; }
+        #video-container { border: 1px solid #ccc; padding: 10px; }
+        #videos { display: flex; gap: 10px; }
+        video { width: 100%; border: 1px solid black; background: #333; }
+        .controls button { margin-top: 10px; padding: 8px 12px; }
+    </style>
+</head>
+<body>
+    <div id="chat-container" class="column">
+        <h2>Simple Websocket Chat</h2>
+        <div id="chat-box"></div>
+        <input type="text" id="message-input" placeholder="Type a message..." style="width: 70%;">
+        <button id="send-button">Send</button>
+    </div>
+
+    <div id="video-container" class="column">
+        <h2>Video Call (WebRTC)</h2>
+        <div id="videos">
+            <div>
+                <h4>You</h4>
+                <video id="localVideo" autoplay playsinline muted></video>
+            </div>
+            <div>
+                <h4>Remote</h4>
+                <video id="remoteVideo" autoplay playsinline></video>
+            </div>
+        </div>
+        <div class="controls">
+            <button id="start-call-button">Start/Call</button>
+            <button id="hang-up-button">Hang Up</button>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
