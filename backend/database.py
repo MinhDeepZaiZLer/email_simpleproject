@@ -42,7 +42,7 @@ class ReceivedEmail(Base):
     
     is_read = Column(Boolean, default=False)
     timestamp = Column(DateTime, default=datetime.datetime.utcnow)
-
+    is_spam = Column(Boolean, default=False, nullable=False)
 def init_db():
     """Hàm tạo bảng (chạy một lần khi setup)"""
     Base.metadata.create_all(bind=engine)
