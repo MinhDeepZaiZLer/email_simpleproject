@@ -23,6 +23,7 @@ class ReceivedEmail(Base):
     recipient_email = Column(String, nullable=False)
     raw_message = Column(Text, nullable=False)
     is_read = Column(Boolean, default=False)
+<<<<<<< HEAD
     timestamp = Column(DateTime, default=datetime.utcnow)
 
 # Database connection
@@ -38,6 +39,10 @@ def get_db():
     finally:
         db.close()
 
+=======
+    timestamp = Column(DateTime, default=datetime.datetime.utcnow)
+    is_spam = Column(Boolean, default=False, nullable=False)
+>>>>>>> 0e68846143171547554d34a3e9dbf20e28c7155c
 def init_db():
     """Tạo tất cả tables"""
     Base.metadata.create_all(bind=engine)

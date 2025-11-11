@@ -13,18 +13,23 @@
         <div class="email-item">
             <div class="email-item-header">
                 <div>
-                    <div class="email-subject">{{ email.subject }}</div>
+                    <div class="email-subject">
+                        {% if email.is_spam %}
+                            <span style="color:red; font-weight:bold;">[SPAM]</span>
+                        {% endif %}
+                        {{ email.subject }}
+                    </div>
                     <div class="email-from">Từ: {{ email.from }}</div>
                 </div>
-               <div>
-    {% if email.verified == True %}
-        <span class="verified">✔ Đã xác thực</span>
-    {% elif email.verified == False %}
-        <span class="not-verified">❌ Chữ ký không hợp lệ!</span>
-    {% else %}
-        <span style="color: var(--text-muted); font-style: italic;">(Email thường)</span>
-    {% endif %}
-</div>
+                <div>
+                    {% if email.verified == True %}
+                        <span class="verified">✔ Đã xác thực</span>
+                    {% elif email.verified == False %}
+                        <span class="not-verified">❌ Chữ ký không hợp lệ!</span>
+                    {% else %}
+                        <span style="color: var(--text-muted); font-style: italic;">(Email thường)</span>
+                    {% endif %}
+                </div>
             </div>
             <div class="email-body">
                 {{ email.body }}
